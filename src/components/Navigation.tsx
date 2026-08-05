@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import ThemeToggle from './ThemeToggle';
 import LanguageToggle from './LanguageToggle';
+import avatarImage from '../assets/avatar.png';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -55,9 +56,11 @@ const Navigation = () => {
             onClick={() => scrollToSection('hero')}
             className="flex items-center gap-2.5 shrink-0"
           >
-            <span className="w-9 h-9 rounded-lg bg-accent-primary text-white flex items-center justify-center font-bold text-sm">
-              OT
-            </span>
+            <img
+              src={avatarImage}
+              alt="Oussama Tabzioui"
+              className="w-9 h-9 rounded-lg object-cover border border-card-border"
+            />
             <span className="hidden sm:block font-semibold text-foreground">
               Oussama Tabzioui
             </span>
