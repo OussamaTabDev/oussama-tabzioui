@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Oussama Tabzioui - CV Développeur Logiciel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #e2e8f0;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            padding: 2rem 1rem;
+            line-height: 1.45;
+        }
+
+        /* CV paper style */
+        .cv {
+            max-width: 1050px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+            padding: 1.8rem 2rem 2rem 2rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            .cv {
+                box-shadow: none;
+                padding: 0.6cm;
+                max-width: 100%;
+            }
+            .section-title {
+                break-after: avoid;
+            }
+            .exp-row, .edu-row, .subproject-row {
+                break-inside: avoid;
+            }
+            .personal-info-simple {
+                border-top: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+            }
+        }
+
+        /* ========= HEADER: NAME + PICTURE ========= */
+        .personal-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #111;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+        .name-area {
+            flex: 2;
+        }
+        .name-area h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #000;
+            margin-bottom: 0.2rem;
+        }
+        .name-area .title {
+            font-weight: 500;
+            color: #2c3e66;
+            font-size: 0.9rem;
+        }
+        .picture-area {
+            flex-shrink: 0;
+        }
+        
+        /* SQUARE IMAGE CSS */
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            display: block;
+            border: 1px solid #d1d5db;
+            background-color: #f9fafb;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            border-radius: 4px;
+        }
+        
+        @media (max-width: 650px) {
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* ========= GRID CONTACT - NO LOGOS ========= */
+        .personal-info-simple {
+            background: transparent;
+            padding: 0.6rem 0;
+            margin: 0.5rem 0 1.2rem 0;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.6rem 1.8rem;
+            align-items: start;
+            padding: 0.2rem 0;
+        }
+        .contact-item {
+            font-size: 0.8rem;
+            color: #1e293b;
+            font-family: 'Segoe UI', monospace;
+            letter-spacing: 0.2px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.4rem;
+        }
+        .contact-label {
+            font-weight: 700;
+            color: #000;
+            min-width: 70px;
+            display: inline-block;
+        }
+        .contact-value {
+            color: #1e293b;
+            word-break: break-word;
+        }
+        .contact-value a {
+            text-decoration: none;
+            color: #1e293b;
+            border-bottom: 1px dotted #aaa;
+        }
+        .contact-value a:hover {
+            color: #000;
+            border-bottom-color: #000;
+        }
+
+        @media (max-width: 550px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Profile section */
+        .pro-profile {
+            background: #f9f9fb;
+            padding: 0.9rem 1.2rem;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid #111;
+        }
+        .pro-profile p {
+            font-size: 0.9rem;
+            line-height: 1.45;
+            color: #111;
+        }
+
+        /* Experience */
+        .exp-grid, .edu-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem;
+            margin-top: 0.5rem;
+        }
+        .exp-row, .edu-row {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 1.2rem;
+            align-items: start;
+        }
+        .exp-date-col, .edu-date-col {
+            font-family: 'Courier New', 'SF Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: #f0f2f5;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            display: inline-block;
+            text-align: center;
+            color: #1e3a5f;
+            white-space: nowrap;
+            width: fit-content;
+            min-width: 120px;
+        }
+        .exp-content-col, .edu-content-col {
+            border-left: 1px solid #e2e8f0;
+            padding-left: 1rem;
+        }
+        .exp-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #0c4e6e;
+            margin-bottom: 0.3rem;
+        }
+        .exp-details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .exp-details li {
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1rem;
+            color: #2d2f36;
+            line-height: 1.45;
+        }
+        .exp-details li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #555;
+        }
+
+        /* Sub-projects */
+        .subproject-list {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .subproject-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.2rem;
+        }
+        .subproject-content {
+            border-left: 1px solid #e2e8f0;
+            padding-left: 1rem;
+        }
+        .subproject-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #1e4663;
+            margin-bottom: 0.35rem;
+        }
+        .subproject-details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .subproject-details li {
+            font-size: 0.82rem;
+            margin-bottom: 0.4rem;
+            position: relative;
+            padding-left: 1rem;
+            color: #2d2f36;
+            line-height: 1.4;
+        }
+        .subproject-details li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #5f7f9e;
+        }
+        .subproject-links {
+            margin-top: 0.45rem;
+            font-size: 0.78rem;
+            color: #4b5563;
+        }
+        .subproject-links a {
+            color: #0c4e6e;
+            text-decoration: none;
+            border-bottom: 1px dotted #999;
+            word-break: break-all;
+        }
+        .subproject-links a:hover {
+            color: #000;
+            border-bottom-color: #000;
+        }
+
+        /* Education */
+        .edu-degree {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #0c4e6e;
+            margin-bottom: 0.2rem;
+        }
+        .edu-institution {
+            font-size: 0.78rem;
+            color: #4b5563;
+            margin-bottom: 0.2rem;
+        }
+        .cert-line {
+            font-size: 0.78rem;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px dashed #ddd;
+        }
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 1.5rem 0 0.8rem 0;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 0.2rem;
+        }
+
+        /* Skills */
+        .skills-simple {
+            margin: 0.5rem 0 0.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            padding: 0.8rem 1rem;
+        }
+        .skills-block {
+            flex: 1;
+            min-width: 150px;
+        }
+        .skills-block h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.4rem;
+            color: #2d3e50;
+        }
+        .skills-block p {
+            font-size: 0.85rem;
+            line-height: 1.3;
+            color: #1e293b;
+        }
+
+        @media (max-width: 650px) {
+            .exp-row, .edu-row {
+                grid-template-columns: 1fr;
+                gap: 0.4rem;
+            }
+            .exp-date-col, .edu-date-col {
+                margin-bottom: 0.2rem;
+                white-space: normal;
+            }
+            .exp-content-col, .edu-content-col {
+                border-left: none;
+                padding-left: 0.5rem;
+                border-left: 1px solid #e2e8f0;
+                margin-left: 0.2rem;
+            }
+            .subproject-content {
+                border-left: 1px solid #e2e8f0;
+                padding-left: 0.75rem;
+            }
+            .cv {
+                padding: 1.2rem;
+            }
+            .personal-header {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+
+        .print-footer {
+            display: none;
+        }
+        @media print {
+            .print-footer {
+                display: block;
+                font-size: 0.7rem;
+                text-align: center;
+                margin-top: 1rem;
+                color: gray;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="cv">
+    <!-- HEADER -->
+    <div class="personal-header">
+        <div class="name-area">
+            <h1>OUSSAMA TABZIOUI</h1>
+            <div class="title">Développeur Logiciel · Desktop, Mobile &amp; Backend</div>
+        </div>
+        <div class="picture-area">
+            <img class="profile-img" src="pic.png" alt="Photo Oussama Tabzioui">
+        </div>
+    </div>
+
+    <!-- CONTACT - sans logos -->
+    <div class="personal-info-simple">
+        <div class="contact-grid">
+            <div class="contact-item">
+                <span class="contact-label">Localisation :</span>
+                <span class="contact-value">Casablanca, Maroc</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">Téléphone :</span>
+                <span class="contact-value">+212 7 74 36 80 63</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">Email :</span>
+                <span class="contact-value"><a href="mailto:oussamatabzioui09@gmail.com">oussamatabzioui09@gmail.com</a></span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">Web :</span>
+                <span class="contact-value"><a href="https://oussamatabdev.github.io/oussama-tabzioui/">oussamatabdev.github.io/oussama-tabzioui/</a></span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">GitHub :</span>
+                <span class="contact-value"><a href="https://github.com/OussamaTabDev">github.com/OussamaTabDev</a></span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">LinkedIn :</span>
+                <span class="contact-value"><a href="https://linkedin.com/in/OussamaTabDev">linkedin.com/in/OussamaTabDev</a></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profil professionnel -->
+    <div class="pro-profile">
+        <p><strong>Profil professionnel</strong> – Développeur logiciel indépendant basé à Casablanca, au Maroc, spécialisé dans l'architecture backend, les applications full‑stack, les outils intégrant l'IA et les produits commerciaux desktop &amp; mobile. Je privilégie des solutions propres et pragmatiques utilisant <strong>Python, JavaScript, TypeScript, Rust</strong> et des frameworks comme <strong>Django, React, Electron, Tauri</strong>. Capacité prouvée à concevoir des API REST, optimiser des bases de données, développer des applications desktop hors ligne, des PWA/mobile multiplateformes et des produits auto-hébergés pour les secteurs sensibles aux données. Forte attention aux performances, à la maintenabilité et aux besoins réels des utilisateurs.</p>
+    </div>
+
+    <!-- ========= EXPÉRIENCE PROFESSIONNELLE ========= -->
+    <div class="section-title">Expérience Professionnelle</div>
+    <div class="exp-grid">
+        <!-- Auto-entrepreneur - détails techniques intégrés dans les projets -->
+        <div class="exp-row">
+            <div class="exp-date-col">Juillet 2024 – Présent</div>
+            <div class="exp-content-col">
+                <div class="exp-title">Développeur Logiciel (Indépendant / Freelance)</div>
+                
+                <div class="subproject-list">
+                    <!-- Clinic OS – application commerciale de gestion de clinique (en cours) -->
+                    <div class="subproject-row">
+                        <div class="subproject-content">
+                            <div class="subproject-title">Clinic OS – Gestion de clinique commerciale (Electron + Auto-hébergé)</div>
+                            <div class="subproject-details">
+                                <ul>
+                                    <li><strong>Nouvelle application commerciale de gestion de clinique :</strong> construite sur la même pile technologique que Maktabaty Pro (Electron + React) pour des opérations cliniques multiplateformes fluides.</li>
+                                    <li>Dossiers patients, planification des rendez-vous, consultations et rapports — le tout dans une interface desktop utilisable hors ligne.</li>
+                                    <li>Serveurs exclusivement auto-hébergés : les données médicales sensibles restent sur l'infrastructure de la clinique pour une confidentialité et une conformité maximales.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maktabaty Pro – suite commerciale multi-applications (construite sur TemplateFlow) -->
+                    <div class="subproject-row">
+                        <div class="subproject-content">
+                            <div class="subproject-title">Maktabaty Pro – Suite commerciale multi-applications (Electron + React)</div>
+                            <div class="subproject-details">
+                                <ul>
+                                    <li><strong>Suite desktop commerciale construite sur la fondation TemplateFlow :</strong> une application Electron + React riche en fonctionnalités, fonctionnant sur tout ordinateur (Windows, macOS, Linux) et couvrant la gestion complète des bibliothèques (maktabaty).</li>
+                                    <li>Langage de templating personnalisé avec logique (instructions for/if et champs dynamiques), génération avancée de PDF et outils, ainsi qu'une automatisation réduisant jusqu'à 60% du temps de traitement des documents.</li>
+                                    <li>Interfaces trilingues RTL/LTR (arabe/anglais/français) avec stockage local hors ligne pour une souveraineté totale des données.</li>
+                                </ul>
+                                <div class="subproject-links">Essayer la démo : <a href="https://oussamatabdev.github.io/maktabatypro/" target="_blank" rel="noopener">oussamatabdev.github.io/maktabatypro</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NourHuda – application Azan & Coran (mobile / PWA, open source) -->
+                    <div class="subproject-row">
+                        <div class="subproject-content">
+                            <div class="subproject-title">NourHuda – Application Azan &amp; Coran (Mobile + PWA, Open Source)</div>
+                            <div class="subproject-details">
+                                <ul>
+                                    <li><strong>Application mobile et progressive web app (PWA) :</strong> combine les horaires de prière (adhan) avec le Coran du Mushaf de Muhammad (المصحف المحمدي), incluant le tafsir et des fonctions de lecture complètes.</li>
+                                    <li>Fonctionne nativement sur mobile et sur tout autre appareil via la PWA, avec une capacité hors ligne pour une expérience de prière et de lecture complète.</li>
+                                    <li>Open source, conçue pour être facilement étendue par la communauté.</li>
+                                </ul>
+                                <div class="subproject-links">Code source : <a href="https://github.com/OussamaTabDev/azan-simple-page" target="_blank" rel="noopener">github.com/OussamaTabDev/azan-simple-page</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TemplateFlow – moteur prototype, fondation des applications suivantes -->
+                    <div class="subproject-row">
+                        <div class="subproject-content">
+                            <div class="subproject-title">TemplateFlow – Moteur de documents dynamiques (Prototype &amp; Fondation)</div>
+                            <div class="subproject-details">
+                                <ul>
+                                    <li><strong>À l'origine un prototype :</strong> un moteur de templates personnalisé pour la génération dynamique de documents — instructions logiques for/if, champs dynamiques, génération PDF et automatisation — conçu comme une couche de base réutilisable.</li>
+                                    <li>Devenu la fondation de plusieurs produits développés ensuite, dont Maktabaty Pro (suite commerciale de gestion de bibliothèque) et Clinic OS (gestion de clinique commerciale), partageant le même socle Electron + React.</li>
+                                    <li>Interfaces trilingues RTL/LTR (arabe/anglais/français) avec stockage local hors ligne pour une souveraineté totale des données.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Application de gestion de bibliothèque – premier petit projet -->
+                    <div class="subproject-row">
+                        <div class="subproject-content">
+                            <div class="subproject-title">Application de gestion de bibliothèque (Full-stack)</div>
+                            <div class="subproject-details">
+                                <ul>
+                                    <li>Système complet de gestion des emprunts avec tableaux de bord étudiants et panneaux d’administration utilisant Django REST + React.</li>
+                                    <li>Interface responsive moderne avec Tailwind CSS, backend PostgreSQL et endpoints REST optimisés, réduction de la latence de recherche de 35%.</li>
+                                    <li>Implémentation de l’authentification JWT et du contrôle d’accès basé sur les rôles.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tracker – premier projet (application de productivité IA, open source / licenciable) -->
+                    <div class="subproject-row">
+                        <div class="subproject-content">
+                            <div class="subproject-title">Tracker – Application de productivité IA (Open Source / Disponible à l'achat)</div>
+                            <div class="subproject-details">
+                                <ul>
+                                    <li><strong>Application de productivité full-stack avec IA :</strong> construite avec Django, React et Tauri, intégrant des modèles scikit-learn pour l'analyse de productivité en temps réel et le suivi de sessions.</li>
+                                    <li>Surveillance multi-fenêtres, extension Chromium et tableau de bord d'analyse de la concentration fournissant des informations d'efficacité personnalisées.</li>
+                                    <li>Open source, également disponible en tant que produit sous licence prêt à l'emploi.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stage -->
+        <div class="exp-row">
+            <div class="exp-date-col">Sept 2024 – Déc 2024</div>
+            <div class="exp-content-col">
+                <div class="exp-title">Développeur Full Stack (Stage) – GenerationNT, Meknès</div>
+                <div class="subproject-details">
+                    <ul>
+                        <li>Développement complet d’une plateforme e-commerce en PHP pur et MySQL (panier, gestion des produits, tableau de bord administrateur).</li>
+                        <li>Optimisation des requêtes SQL et renforcement de la sécurité pour la logique métier et les sessions utilisateur.</li>
+                        <li>Collaboration directe avec l’équipe sur la planification des fonctionnalités et la correction des bugs.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- COMPÉTENCES TECHNIQUES -->
+    <div class="section-title">Compétences Techniques</div>
+    <div class="skills-simple">
+        <div class="skills-block">
+            <h4>Langages</h4>
+            <p>Python, JavaScript, TypeScript, Java, SQL, C, Rust, PHP</p>
+        </div>
+        <div class="skills-block">
+            <h4>Frameworks / Bibliothèques</h4>
+            <p>Flask, Django, React, Node.js, Electron, Tauri, Tailwind CSS, PWA</p>
+        </div>
+        <div class="skills-block">
+            <h4>IA & Données</h4>
+            <p>Scikit-learn, TensorFlow, NumPy, pandas</p>
+        </div>
+        <div class="skills-block">
+            <h4>Bases de données</h4>
+            <p>PostgreSQL, MySQL, SQLite, IndexedDB</p>
+        </div>
+        <div class="skills-block">
+            <h4>Outils & DevOps</h4>
+            <p>Git, Docker, Linux, Postman, API REST, CI/CD, XAMPP</p>
+        </div>
+    </div>
+
+    <!-- FORMATION ET CERTIFICATIONS -->
+    <div class="section-title">Formation & Certifications</div>
+    <div class="edu-grid">
+        <div class="edu-row">
+            <div class="edu-date-col">Oct 2021 – Juil 2025</div>
+            <div class="edu-content-col">
+                <div class="edu-degree">Licence en Mathématiques et Informatique (SMI)</div>
+                <div class="edu-institution">Université Moulay Ismail (UMI), Meknès</div>
+            </div>
+        </div>
+        <div class="edu-row">
+            <div class="edu-date-col">Juillet 2021</div>
+            <div class="edu-content-col">
+                <div class="edu-degree">Baccalauréat Sciences Mathématiques A</div>
+                <div class="edu-institution">Lycée Tariq, Khénifra</div>
+            </div>
+        </div>
+    </div>
+    <div class="cert-line">
+        <strong>Certificats :</strong> Licence Sciences Mathématiques et Informatique (SMI) – UMI Meknès (2025) &nbsp;|&nbsp; Baccalauréat Sciences Mathématiques – Lycée Tariq (2021)
+    </div>
+
+    <div class="print-footer">Oussama Tabzioui · CV · Mis à jour 2026</div>
+</div>
+</body>
+</html>
