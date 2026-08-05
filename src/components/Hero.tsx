@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Github, Download, ArrowDown } from 'lucide-react';
+import { Github, Download, ArrowDown, Linkedin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import avatarImage from '../assets/avatar.png';
-// import 
+
 const Hero = () => {
   const [typedText, setTypedText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
@@ -100,11 +100,21 @@ const Hero = () => {
               <Github size={20} />
               {t('hero.github')}
             </a>
+
+            <a
+              href="https://linkedin.com/in/OussamaTabDev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 glass-card hover:border-accent-primary smooth-transition w-full sm:w-auto justify-center hover-scale"
+            >
+              <Linkedin size={20} />
+              {t('hero.linkedin')}
+            </a>
           </div>
 
           {/* Scroll Indicator */}
           <div className="flex flex-col items-center animate-slide-up">
-            <span className="text-text-muted text-sm mb-2 font-mono">Scroll to explore</span>
+            <span className="text-text-muted text-sm mb-2 font-mono">{t('hero.scroll')}</span>
             <ArrowDown 
               size={24} 
               className="text-accent-primary animate-bounce cursor-pointer hover:text-accent-secondary smooth-transition hover-scale"

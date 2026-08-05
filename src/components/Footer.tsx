@@ -19,7 +19,7 @@ const Footer = () => {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="text-accent-primary hover:text-accent-secondary transition-colors font-mono text-sm"
             >
-              ↑ Back to Top
+              ↑ {t('footer.back')}
             </button>
           </div>
         </div>

@@ -6,12 +6,12 @@ const Skills = () => {
   const skillCategories = [
     {
       title: t('skills.languages'),
-      skills: ['Python', 'JavaScript', 'Java', 'SQL', 'C', 'PHP', 'Kotlin', 'Dart'],
+      skills: ['Python', 'JavaScript', 'TypeScript', 'Java', 'SQL', 'C', 'Rust', 'PHP'],
       icon: '💻'
     },
     {
       title: t('skills.frameworks'),
-      skills: ['Django', 'Flask', 'React', 'Node.js', 'Laravel', 'Flutter'],
+      skills: ['Django', 'Flask', 'React', 'Node.js', 'Electron', 'Tauri', 'Tailwind CSS', 'PWA'],
       icon: '🚀'
     },
     {
@@ -21,12 +21,12 @@ const Skills = () => {
     },
     {
       title: t('skills.databases'),
-      skills: ['MySQL', 'PostgreSQL', 'SQLite'],
+      skills: ['PostgreSQL', 'MySQL', 'SQLite', 'IndexedDB'],
       icon: '🗄️'
     },
     {
       title: t('skills.tools'),
-      skills: ['Git', 'Docker', 'Linux', 'Postman', 'Oracle SQL', 'XAMPP', 'Figma', 'Android Studio', 'Godot Engine'],
+      skills: ['Git', 'Docker', 'Linux', 'Postman', 'REST APIs', 'CI/CD', 'XAMPP'],
       icon: '🛠️'
     }
   ];

@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Github, Globe } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Globe } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const Contact = () => {
@@ -20,7 +20,7 @@ const Contact = () => {
     {
       icon: <MapPin size={20} />,
       label: t('contact.location'),
-      value: 'Khénifra, Morocco',
+      value: 'Casablanca, Morocco',
       href: '#'
     }
   ];
@@ -32,9 +32,14 @@ const Contact = () => {
       href: 'https://github.com/OussamaTabDev'
     },
     {
+      icon: <Linkedin size={24} />,
+      label: 'LinkedIn',
+      href: 'https://linkedin.com/in/OussamaTabDev'
+    },
+    {
       icon: <Globe size={24} />,
       label: 'Website',
-      href: '#'
+      href: 'https://oussamatabdev.github.io/oussama-tabzioui/'
     }
   ];
 
@@ -44,15 +49,15 @@ const Contact = () => {
         <h2 className="text-3xl md:text-4xl font-mono font-bold text-center mb-16 text-gradient">
           {t('contact.title')}
         </h2>
-        
+
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Contact Information */}
             <div className="space-y-6">
               <h3 className="text-xl font-mono font-semibold text-accent-primary mb-6">
-                Contact Information
+                {t('contact.info')}
               </h3>
-              
+
               {contactInfo.map((item, index) => (
                 <a
                   key={index}
@@ -69,18 +74,18 @@ const Contact = () => {
                 </a>
               ))}
             </div>
-            
+
             {/* Social Links & CTA */}
             <div className="space-y-6">
               <h3 className="text-xl font-mono font-semibold text-accent-primary mb-6">
-                Let's Connect
+                {t('contact.connect')}
               </h3>
-              
+
               <div className="glass-card p-6">
                 <p className="text-text-primary mb-6 leading-relaxed">
-                  Ready to bring your ideas to life? Let's discuss your next project and create something amazing together.
+                  {t('contact.cta')}
                 </p>
-                
+
                 <div className="flex gap-4 mb-6">
                   {socialLinks.map((link, index) => (
                     <a
@@ -97,19 +102,19 @@ const Contact = () => {
                     </a>
                   ))}
                 </div>
-                
+
                 <a
                   href="mailto:OussamaTabzioui09@gmail.com"
                   className="btn-neon w-full justify-center"
                 >
-                  Send Message
+                  {t('contact.message')}
                 </a>
               </div>
-              
+
               {/* Fun Fact */}
               <div className="glass-card p-4 text-center">
                 <p className="text-text-secondary-muted text-sm font-mono">
-                  💡 Fun Fact: Try the Konami Code!
+                  {t('contact.funfact')}
                 </p>
                 <p className="text-xs text-text-secondary-muted mt-1">
                   ↑↑↓↓←→←→BA
