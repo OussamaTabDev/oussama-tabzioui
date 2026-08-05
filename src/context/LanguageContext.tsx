@@ -134,6 +134,10 @@ const translations = {
     // Footer
     'footer.text': 'Built with React & Tailwind.',
     'footer.back': 'Back to Top',
+
+    // CV page
+    'cv.download': 'Download as PDF',
+    'cv.hint': 'In the print dialog, choose "Save as PDF" as the destination.',
   },
   fr: {
     // Navigation
@@ -258,6 +262,10 @@ const translations = {
     // Footer
     'footer.text': 'Conçu avec React & Tailwind.',
     'footer.back': 'Retour en haut',
+
+    // CV page
+    'cv.download': 'Télécharger en PDF',
+    'cv.hint': 'Dans la boîte de dialogue d’impression, choisissez « Enregistrer en PDF » comme destination.',
   },
   ar: {
     // Navigation
@@ -382,6 +390,10 @@ const translations = {
     // Footer
     'footer.text': 'بُني بـ React و Tailwind.',
     'footer.back': 'العودة إلى الأعلى',
+
+    // CV page
+    'cv.download': 'تحميل PDF',
+    'cv.hint': 'في نافذة الطباعة، اختر "حفظ كـ PDF" كوجهة.',
   },
 };
 

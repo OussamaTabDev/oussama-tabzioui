@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Github, Download, Linkedin, MapPin, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import avatarImage from '../assets/avatar.png';
@@ -64,9 +65,9 @@ const Hero = () => {
               <button onClick={scrollToProjects} className="btn-primary">
                 {t('hero.projects')} <ArrowRight size={18} />
               </button>
-              <a href="./resume.pdf" download className="btn-outline">
+              <Link to="/cv" className="btn-outline">
                 <Download size={18} /> {t('hero.cv')}
-              </a>
+              </Link>
             </div>
 
             <div className="mt-8 flex items-center gap-3">
