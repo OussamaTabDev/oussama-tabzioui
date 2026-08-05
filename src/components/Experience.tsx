@@ -1,3 +1,4 @@
+import SectionHeader from './SectionHeader';
 import { useLanguage } from '../context/LanguageContext';
 import { Briefcase, Calendar } from 'lucide-react';
 
@@ -20,43 +21,35 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 relative">
+    <section id="experience" className="py-20">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-mono font-bold text-center mb-16 text-gradient">
-          {t('experience.title')}
-        </h2>
+        <SectionHeader title={t('experience.title')} />
 
         <div className="max-w-3xl mx-auto">
           <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-accent-primary/30" />
+            <div className="absolute left-4 md:left-5 top-2 bottom-2 w-0.5 bg-card-border" />
 
             {experiences.map((exp, index) => (
-              <div key={index} className="relative mb-12 last:mb-0">
-                {/* Timeline dot */}
-                <div className="absolute left-6 w-4 h-4 bg-accent-primary rounded-full border-4 border-surface shadow-lg" />
+              <div key={index} className="relative mb-10 last:mb-0 pl-12 md:pl-16">
+                <div className="absolute left-1.5 md:left-2.5 top-7 w-5 h-5 bg-card-bg border-2 border-accent-primary rounded-full" />
 
-                <div className="ml-20">
-                  <div className="glass-card p-6">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                      <div>
-                        <h3 className="text-xl font-mono font-semibold text-accent-primary mb-1">
-                          {exp.title}
-                        </h3>
-                        <div className="flex items-center gap-2 text-text-primary mb-2">
-                          <Briefcase size={16} />
-                          <span>{exp.company}</span>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-2 text-text-muted font-mono text-sm">
-                        <Calendar size={16} />
-                        <span>{exp.period}</span>
+                <div className="card p-6 card-hover">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-4">
+                    <div>
+                      <h3 className="text-xl font-semibold text-foreground mb-1">{exp.title}</h3>
+                      <div className="flex items-center gap-2 text-text-secondary">
+                        <Briefcase size={16} className="text-accent-primary" />
+                        <span>{exp.company}</span>
                       </div>
                     </div>
 
-                    <p className="text-text-primary leading-relaxed">{exp.description}</p>
+                    <div className="flex items-center gap-2 text-text-muted text-sm">
+                      <Calendar size={16} />
+                      <span>{exp.period}</span>
+                    </div>
                   </div>
+
+                  <p className="text-text-secondary leading-relaxed">{exp.description}</p>
                 </div>
               </div>
             ))}

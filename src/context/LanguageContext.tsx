@@ -18,9 +18,12 @@ const translations = {
     'nav.projects': 'Projects',
     'nav.experience': 'Experience',
     'nav.contact': 'Contact',
+    'nav.cta': 'Hire Me',
 
     // Hero
-    'hero.greeting': "Hi, I'm Oussama Tabzioui",
+    'hero.greeting': "Hi, I'm",
+    'hero.name': 'Oussama Tabzioui',
+    'hero.available': 'Available for new projects',
     'hero.subtitle': 'Software Developer · Desktop, Mobile & Backend',
     'hero.description': 'I design and ship commercial desktop apps, mobile/PWA products and AI-powered tools — from prototype to production.',
     'hero.projects': 'View Projects',
@@ -139,9 +142,12 @@ const translations = {
     'nav.projects': 'Projets',
     'nav.experience': 'Expérience',
     'nav.contact': 'Contact',
+    'nav.cta': 'Engagez-moi',
 
     // Hero
-    'hero.greeting': 'Salut, je suis Oussama Tabzioui',
+    'hero.greeting': 'Salut, je suis',
+    'hero.name': 'Oussama Tabzioui',
+    'hero.available': 'Disponible pour de nouveaux projets',
     'hero.subtitle': 'Développeur Logiciel · Desktop, Mobile & Backend',
     'hero.description': 'Je conçois et livre des applications desktop commerciales, des produits mobile/PWA et des outils alimentés par l\u2019IA — du prototype à la production.',
     'hero.projects': 'Voir les projets',
@@ -260,9 +266,12 @@ const translations = {
     'nav.projects': 'المشاريع',
     'nav.experience': 'الخبرة',
     'nav.contact': 'التواصل',
+    'nav.cta': 'وظّفني',
 
     // Hero
-    'hero.greeting': 'مرحبا، أنا أسامة طبزيوي',
+    'hero.greeting': 'مرحبا، أنا',
+    'hero.name': 'أسامة طبزيوي',
+    'hero.available': 'متاح لمشاريع جديدة',
     'hero.subtitle': 'مطور برمجيات · سطح المكتب والجوال والخوادم',
     'hero.description': 'أصمم وأطلق تطبيقات سطح مكتب تجارية ومنتجات جوال/PWA وأدوات مدعومة بالذكاء الاصطناعي — من النموذج الأولي إلى الإنتاج.',
     'hero.projects': 'عرض المشاريع',

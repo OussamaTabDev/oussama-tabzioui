@@ -6,8 +6,16 @@
     <title>Oussama Tabzioui - Software Developer</title>
     <meta name="description" content="Portfolio of Oussama Tabzioui — Software Developer building commercial desktop apps, mobile/PWA products and AI-powered tools from Morocco." />
     <meta name="author" content="Oussama Tabzioui" />
-    <meta name="theme-color" content="#0d1321" />
+    <meta name="theme-color" content="#f8fafc" />
     <link rel="icon" href="/src/assets/favicon.png" type="image/png" />
+
+    <script>
+      (function () {
+        if (localStorage.getItem('portfolio-theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
 
     <meta property="og:title" content="Oussama Tabzioui - Software Developer" />
     <meta property="og:description" content="Commercial desktop apps, mobile/PWA products and AI-powered tools — from prototype to production." />

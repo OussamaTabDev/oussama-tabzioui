@@ -8,8 +8,6 @@ import Experience from '../components/Experience';
 import Education from '../components/Education';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
-import ThemeToggle from '../components/ThemeToggle';
-import LanguageToggle from '../components/LanguageToggle';
 
 import { useToast } from '../hooks/use-toast';
 
@@ -70,7 +68,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-surface text-text-primary relative overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
       {matrixMode && <div className="matrix-rain" />}
       
       <Navigation />
@@ -86,12 +84,6 @@ const Index = () => {
       </main>
       
       <Footer />
-      
-      {/* Fixed controls */}
-      <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
-        <ThemeToggle />
-        <LanguageToggle />
-      </div>
     </div>
   );
 };
